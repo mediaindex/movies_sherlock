@@ -26,19 +26,16 @@ $dark-secondary: rgba( $dark, .7 );
 
 html {
   color: $dark-secondary;
-  background: linear-gradient(0deg, #8e9eab 10%, #eef2f3 90%); 
-  font-family: 'Montserrat', sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
-body {
   padding: 20px;
-  background: -webkit-linear-gradient(10deg, #20392b, #7F99be), no-repeat #7F99be scroll;
-  background: linear-gradient(10deg, #20392b, #7F99be), no-repeat #7F99be scroll;
-  background-repeat: no-repeat;
+  background-color: #7F99be;
+  background: -webkit-linear-gradient(10deg, #7ecca0, #7F99be), repeat #7F99be scroll;
+  // background: linear-gradient(10deg, #7ecca0, #7F99be), repeat #7F99be scroll;
+  background-repeat: repeat;
   background-position: center center;
   background-size: cover;
-  padding-bottom: 4em;
+  padding-bottom: 4em; 
+  font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
 // Table
@@ -87,7 +84,7 @@ body {
 }
 
 table {
-  margin: 10px 0 20px 0;
+  margin: 0 auto;
   text-align: center;
   font-size: 12px;
   overflow: hidden;

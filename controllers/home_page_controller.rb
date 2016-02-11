@@ -1,6 +1,7 @@
 class HomePageController < ApplicationController
   get '/' do
-    api_result = RestClient.get 'http://www.omdbapi.com/?t=gatsby&y=&plot=full&r=JSON'
+    word = 'gatsby'
+    api_result = RestClient.get "http://www.omdbapi.com/?t=" + "#{word}" + "&y=&plot=full&r=JSON"
     jhash = JSON.parse(api_result)
     output = ''
 
