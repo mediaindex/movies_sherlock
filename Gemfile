@@ -2,11 +2,11 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 
-gem 'rest-open-uri'
+# gem 'rest-open-uri'
 
 gem 'json'
 
-gem 'require_all'
+gem 'sprockets'
 
 gem 'slim'
 gem 'sass'
