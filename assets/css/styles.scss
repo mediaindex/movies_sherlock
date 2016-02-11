@@ -1,0 +1,125 @@
+@import 'bourbon';
+
+// Variables
+
+$main: #8e9eab;
+$accent: #0b2653;
+$neutral: #eee;
+$dark: #000;
+$light: #fff;
+
+// Type scale
+
+$light-intense: #fff; 
+$dark-intense: #000; 
+$dark-secondary: rgba( $dark, .7 ); 
+
+// Breakpoint mixin
+
+@mixin media($class) {
+  @if $class == tablet {
+    @media (min-width: 860px) { @content; }
+  }
+}
+
+// Basic setup
+
+html {
+  color: $dark-secondary;
+  background: linear-gradient(0deg, #8e9eab 10%, #eef2f3 90%); 
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  padding: 20px;
+  background: -webkit-linear-gradient(10deg, #20392b, #7F99be), no-repeat #7F99be scroll;
+  background: linear-gradient(10deg, #20392b, #7F99be), no-repeat #7F99be scroll;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding-bottom: 4em;
+}
+
+// Table
+
+.table-wrapper {
+  position: relative;
+  overflow: hidden;
+  @include media(tablet) {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 50px;
+    height: 100%;
+    border-radius: 10px 0 0 10px / 50% 0 0 50%;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, .25);
+  }
+
+  .table-inner {
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      border: 2px solid #fff;
+      background-color: $main;
+    }
+  }
+
+  @include media(tablet) {
+    overflow: visible;
+    box-shadow: none;
+    &:after {
+      content: none;
+    }
+  }
+}
+
+table {
+  margin: 10px 0 20px 0;
+  text-align: center;
+  font-size: 12px;
+  overflow: hidden;
+  border-radius: 5px;
+
+  caption {
+    font-size: 40px;
+    color: $light-intense;
+    margin-bottom: 23px;
+    text-align: left;
+  }
+
+  th, td {
+    padding: 15px 15px;
+    min-width: 100px;
+    border: none;
+    text-align: center;
+    background: $neutral;
+    text-align: left;
+  }
+
+  th {
+    background: $main; 
+    color: $light-intense; 
+  }
+
+  td:first-child {
+    font-weight: bold;
+    text-align: left;
+  }
+
+  tr:nth-child(even) td {
+    background: lighten( $neutral, 12% ) ;
+  }
+}
