@@ -21,6 +21,13 @@ $dark-secondary: rgba( $dark, .7 );
   @if $class == tablet {
     @media (min-width: 860px) { @content; }
   }
+  @if $class == mobile {
+    @media (max-width: 800px) and (orientation: landscape) { @content; }
+    @media (max-width: 500px) and (orientation: portrait) { @content; }
+  }
+  @if $class == mobile_low {
+    @media (max-width: 568px) and (orientation: landscape) { @content; }
+  }
 }
 
 // Helpers
@@ -35,14 +42,13 @@ $dark-secondary: rgba( $dark, .7 );
       -ms-transform: translate(-50%, -50%);
        -o-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  @include media(mobile) {
+    width: 90%
+  }  
 }
 
 .red {
   color: $red;
-}
-
-.wrapper {
-  height: 100vh;
 }
 
 .error {
@@ -56,6 +62,10 @@ $dark-secondary: rgba( $dark, .7 );
   -moz-animation:    error_animation 3s cubic-bezier(0.45, 0.43, 0.52, 1.03); /* Fx 5+ */
   -o-animation:      error_animation 3s cubic-bezier(0.45, 0.43, 0.52, 1.03); /* Opera 12+ */
   animation:         error_animation 3s cubic-bezier(0.45, 0.43, 0.52, 1.03); /* IE 10+, Fx 29+ */
+  @include media(mobile) {
+    top: -5px;
+    font-size: .8em;
+  }
 }
 
 @-webkit-keyframes error_animation {
@@ -101,15 +111,32 @@ body {
   margin: 0;
 }
 
+.logo {
+  @include media(mobile) {
+    width: 25px;
+    height: 25px;
+  }
+
+  @include media(mobile_low) {
+    display: none;
+  }
+}
+
 h1 {
   font-size: 4em;
   color: #fff8dc;
   text-shadow: rgb(255, 144, 39) 2px 2px;
+  @include media(mobile) {
+    font-size: 2em;
+  }
 }
 
 h2 {
   font-size: 2em;
   color: $light;
+  @include media(mobile) {
+    font-size: 1em;
+  }
 }
 
 // Form
@@ -117,6 +144,9 @@ h2 {
 form {
   padding-top: 40px;
   position: relative;
+  @include media(mobile) {
+    padding-top: 5px;
+  }
 
   input, button {
     display: block;
@@ -173,6 +203,9 @@ form {
     border: none;
     text-transform: uppercase;
     font-size: .9em;
+    @include media(mobile_low) {
+      margin-top: 14px;
+    }
 
     &:hover {
       background: #4082f5;
@@ -196,29 +229,15 @@ form {
     margin: 40px auto;
   }
 
-  &:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 100%;
-    width: 50px;
-    height: 100%;
-    border-radius: 10px 0 0 10px / 50% 0 0 50%;
-    box-shadow: -5px 0 10px rgba(0, 0, 0, .25);
-  }
-
   .table-inner {
-    overflow-x: auto;
-    &::-webkit-scrollbar {
-      -webkit-appearance: none;
-      width: 14px;
-      height: 14px;
+    overflow: scroll;
+    max-height: 420px;
+    @include media(tablet) {
+      max-height: 600px;
     }
 
-    &::-webkit-scrollbar-thumb {
-      border-radius: 5px;
-      border: 2px solid #fff;
-      background-color: $main;
+    @include media(mobile) {
+      max-height: 420px;
     }
   }
 
@@ -241,7 +260,7 @@ table {
   }
 
   caption {
-    font-size: 2em;
+    font-size: 1.5em;
     color: $light-intense;
     margin-bottom: 23px;
     text-align: left;
@@ -274,11 +293,13 @@ table {
   }
 }
 
-// Link
+// Links
 
-.link {
+.link, .make_with_love {
   text-align: center;
-  padding-top: 40px;
+  @include media(mobile_low) {
+    padding-top: 20px;
+  }
 
   a {
     color: $light;
@@ -291,4 +312,8 @@ table {
       text-decoration: underline;
     }
   }
+}
+
+.make_with_love {
+  padding-top: 40px;
 }
