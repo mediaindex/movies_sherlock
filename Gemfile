@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'sinatra'
 
 # gem 'rest-open-uri'
+gem 'rest-client'
 
 gem 'json'
 
