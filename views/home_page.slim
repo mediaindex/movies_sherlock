@@ -1,13 +1,16 @@
-.table-wrapper
-  .table-inner
-    table
-      caption
-        'Film info
-      thead
-        tr
-          th
-            'Name
-          th
-            'Results  
-      tbody
-        == results
+.wrapper
+  .centered
+    h1
+      'Movie Sherlock
+    h2
+      'Helps you easily find any information about the movie you want
+
+    form method='post'
+      .error.red
+        == @error
+      input type="text" name="movie_title" placeholder="Movie title"
+      button type="submit"
+        'Search
+    .link
+      a href='#'
+        ' Make with &hearts; in Russia    

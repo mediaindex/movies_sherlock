@@ -1,14 +1,21 @@
 class HomePageController < ApplicationController
+
   get '/' do
-    word = 'gatsby'
-    api_result = RestClient.get "http://www.omdbapi.com/?t=" + "#{word}" + "&y=&plot=full&r=JSON"
-    jhash = JSON.parse(api_result)
-    output = ''
+    slim :home_page
+  end
 
-    jhash.each do |key, value|
-      output << "<tr><td>#{key}</td><td>#{value}</td></tr>"
+  post '/' do
+    @movie_title = params[:movie_title]
+    if @movie_title.empty?
+      @error = 'Oops, field is empty!'
+      slim :home_page
+    else
+      parse
     end
+  end
 
-    slim :home_page, :locals => {results: output }
+  not_found do
+    status 404
+    slim :page_not_found
   end
 end
