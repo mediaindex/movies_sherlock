@@ -6,7 +6,8 @@ Bundler.require :default
 require 'sinatra/base'
 
 # pull in the helpers and controllers
-Dir.glob('./{helpers,controllers}/*.rb').each { |file| require file }
+require_all 'helpers'
+require_all 'controllers'
 
 unless ENV['RACK_ENV'] == 'production'
   map '/assets' do

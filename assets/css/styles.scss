@@ -231,7 +231,7 @@ form {
 
   .table-inner {
     overflow: scroll;
-
+    max-height: 800px;
     @include media(mobile) {
       max-height: 420px;
     }

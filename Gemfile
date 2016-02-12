@@ -4,6 +4,8 @@ gem 'sinatra'
 
 gem 'rest-client'
 
+gem 'require_all'
+
 gem 'json'
 
 gem 'sprockets'
