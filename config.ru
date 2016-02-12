@@ -7,6 +7,7 @@ require 'sinatra/base'
 
 # pull in the helpers and controllers
 require_all 'helpers'
+require_all 'services'
 require_all 'controllers'
 
 unless ENV['RACK_ENV'] == 'production'

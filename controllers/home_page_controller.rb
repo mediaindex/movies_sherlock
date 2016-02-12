@@ -10,7 +10,10 @@ class HomePageController < ApplicationController
       @error = 'Oops, field is empty!'
       slim :home_page
     else
-      parse
+      parser = ParserService.new 
+      parser.find_movie(@movie_title)
+      
+      slim :result_page, :locals => { results: parser.result }
     end
   end
 
