@@ -1,15 +1,17 @@
 source 'https://rubygems.org'
 
-gem 'sinatra'
+ruby '2.3.0'
 
-gem 'rest-client'
+gem 'sinatra'
+gem 'sqlite3'
+gem 'activerecord'
+gem 'sinatra-activerecord'
 
 gem 'require_all'
-
+gem 'rest-client'
 gem 'json'
 
 gem 'sprockets'
-
 gem 'slim'
 gem 'sass'
 gem 'bourbon'
@@ -17,4 +19,5 @@ gem 'coffee-script'
 
 group :development, :test do
   gem 'shotgun'
+  gem 'tux'
 end
