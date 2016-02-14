@@ -1,4 +1,4 @@
-@import 'bourbon';
+@import "bourbon";
 
 // Variables
 
@@ -37,11 +37,7 @@ $dark-secondary: rgba( $dark, .7 );
   top: 50%;
   left: 50%;
   text-align: center;
-  -webkit-transform: translate(-50%, -50%);
-     -moz-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-       -o-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  @include transform(translate(-50%, -50%));
   @include media(mobile) {
     width: 90%
   }  
@@ -58,34 +54,20 @@ $dark-secondary: rgba( $dark, .7 );
   right: 0;
   width: 200px;
   margin: 0 auto;
-  -webkit-animation: error_animation 3s cubic-bezier(0.45, 0.43, 0.52, 1.03); /* Safari 4+ */
-  -moz-animation:    error_animation 3s cubic-bezier(0.45, 0.43, 0.52, 1.03); /* Fx 5+ */
-  -o-animation:      error_animation 3s cubic-bezier(0.45, 0.43, 0.52, 1.03); /* Opera 12+ */
-  animation:         error_animation 3s cubic-bezier(0.45, 0.43, 0.52, 1.03); /* IE 10+, Fx 29+ */
+  @include animation(error_animation 3.0s cubic-bezier(0.45, 0.43, 0.52, 1.03));
   @include media(mobile) {
     top: -5px;
     font-size: .8em;
   }
 }
 
-@-webkit-keyframes error_animation {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@-moz-keyframes error_animation {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@-o-keyframes error_animation {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@keyframes error_animation {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
+@include keyframes(error_animation) {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 // Basic setup
@@ -94,21 +76,20 @@ html {
   height: 100%;
   color: $dark-secondary;
   background: #092756;
-  background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #092756 100%);
-  background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
-  background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
-  background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
-  background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
+  @include background(
+             linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%),
+             linear-gradient(-45deg, #670d10 0%, #092756 100%)
+           );
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  font-family: 'Montserrat', sans-serif;
-    -webkit-font-smoothing: antialiased; 
 }
 
 body {
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .logo {
@@ -159,7 +140,6 @@ form {
     width: 50%;
     min-width: 200px;
     max-width: 400px;
-    border: none;
     height: 15px;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.1);
@@ -168,28 +148,15 @@ form {
     margin-top: 15px;
     font-weight: bolder;
     color: $light;
+    @include placeholder {
+      color: $light;
+    }
 
     &:focus {
       outline: 0;
       border: 2px solid rgba(255, 255, 255, 0.5);
       border-radius: 20px;
       background: rgba(0, 0, 0, 0);
-    }
-
-    &::-webkit-input-placeholder {
-      color: $light;
-    }
-
-    &:-moz-placeholder {
-      color: $light;
-    }
-
-    &::-moz-placeholder {
-      color: $light;
-    }
-
-    &:-ms-input-placeholder {
-      color: $light;
     }
   }
 
@@ -209,7 +176,7 @@ form {
 
     &:hover {
       background: #4082f5;
-      box-shadow: 0px 4px 35px -5px #4082f5;
+      box-shadow: 0 4px 35px -5px #4082f5;
     }
 
     &:focus {
@@ -269,7 +236,6 @@ table {
     padding: 1em;
     min-width: 100px;
     border: none;
-    text-align: center;
     background: $neutral;
     text-align: left;
   }
@@ -285,7 +251,7 @@ table {
   }
 
   tr:nth-child(even) td {
-    background: lighten( $neutral, 12% ) ;
+    background: lighten($neutral, 12%);
   }
 }
 
