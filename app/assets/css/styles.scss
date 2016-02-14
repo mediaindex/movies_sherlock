@@ -8,6 +8,7 @@ $neutral: #eee;
 $dark: #000;
 $light: #fff;
 $red: #ca5959;
+$green: #008e7d;
 
 // Type scale
 
@@ -45,6 +46,10 @@ $dark-secondary: rgba( $dark, .7 );
 
 .red {
   color: $red;
+}
+
+.green {
+  color: $green;
 }
 
 .error {

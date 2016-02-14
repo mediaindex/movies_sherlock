@@ -16,6 +16,8 @@ class MoviesController < ApplicationController
 
       if parser_result['Title'].nil?
         slim :'movies/no_results'
+      elsif Movie.where(title: parser_result['Title']).present?
+        slim :'movies/already_exists'
       else
         @movie = Movie.create(
           title: parser_result['Title'],
