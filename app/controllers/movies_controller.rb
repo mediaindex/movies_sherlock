@@ -9,6 +9,9 @@ class MoviesController < ApplicationController
     if @movie_title.empty?
       @error = 'Oops, field is empty!'
       slim :'movies/index'
+    elsif @movie_title.match(/[\p{L}&&[^a-zA-Z]]/)
+      @error = 'Please, use only ASCII characters.'
+      slim :'movies/index'
     else
       parser = ParserService.new 
       parser.find_movie(@movie_title)

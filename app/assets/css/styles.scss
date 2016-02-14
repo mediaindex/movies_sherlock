@@ -57,7 +57,7 @@ $dark-secondary: rgba( $dark, .7 );
   top: 30px;
   left: 0;
   right: 0;
-  width: 200px;
+  width: 320px;
   margin: 0 auto;
   @include animation(error_animation 3.0s cubic-bezier(0.45, 0.43, 0.52, 1.03));
   @include media(mobile) {
