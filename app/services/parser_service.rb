@@ -6,18 +6,7 @@ class ParserService
    end  
 
    def find_movie(movie_title)
-
      @result = prepare_data(movie_title)
-
-
-
-     # data.each do |key, value|
-     #   if key == 'Poster'
-     #     result << "<tr><td>#{key}</td><td><img src=\"#{value}\" alt=\"Movie poster\" height=\"50%\" width=\"auto\"></td></tr>"
-     #   else
-     #     result << "<tr><td>#{key}</td><td>#{value}</td></tr>"
-     #   end
-     # end
    end
 
    private 

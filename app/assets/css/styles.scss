@@ -92,12 +92,15 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.logo {
+.logo,
+.icon {
   @include media(mobile) {
     width: 25px;
     height: 25px;
   }
+}
 
+.logo {
   @include media(mobile_low) {
     display: none;
   }
@@ -129,7 +132,8 @@ form {
     padding-top: 5px;
   }
 
-  input, button {
+  input,
+  button {
     display: block;
     margin: 0 auto;
     padding: 10px 20px;
@@ -232,7 +236,8 @@ table {
     }
   }
 
-  th, td {
+  th,
+  td {
     padding: 1em;
     min-width: 100px;
     border: none;
@@ -257,7 +262,8 @@ table {
 
 // Links
 
-.link, .make_with_love {
+.link,
+.make_with_love {
   text-align: center;
   @include media(mobile_low) {
     padding-top: 20px;
