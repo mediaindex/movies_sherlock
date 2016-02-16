@@ -8,7 +8,7 @@ class AuthController < ApplicationController
     user = User.new(params[:user])
     if user.save
       session[:user_id] = user.id
-      redirect("/")
+      slim :'movies/index'
     else
       @errors = user.errors.full_messages
       slim :'auth/sign_up'

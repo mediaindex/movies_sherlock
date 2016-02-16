@@ -11,14 +11,12 @@ html lang="en"
   body
     section
       .auth_toolbar
-        .log_in_out
-          - if current_user
-            a.log_out href='/auth/log_out'
-              'Log out
-          - else
-            a.log_in href='/auth/log_in'
-              'Log in
-        .sign_up
+        - if current_user
+          a.log_out href='/auth/log_out'
+            'Log out
+        - else
+          a.log_in href='/auth/log_in'
+            'Log in
           a href='/auth/sign_up'
             'Sign up
       == yield

@@ -107,6 +107,42 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+
+// Authentication toolbar
+
+.auth_toolbar {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  z-index: 1;
+
+  a {
+    display: inline-block;
+    margin: 0 10px;
+    color: $light-intense;
+    @include media(mobile) {
+      display: block;
+      margin: 10px 0;
+      text-align: right;
+    }
+
+    &:hover {
+      color: $orange;
+    }
+  }
+}
+
+
+.log_out a {
+  color: $orange;
+
+  &:hover {
+    color: $light-intense;
+  }
+}
+
+// Main page
+
 .logo,
 .icon {
   @include media(mobile) {
@@ -306,39 +342,4 @@ table {
 
 .make_with_love {
   padding-top: 40px;
-}
-
-// Authentication toolbar
-
-.auth_toolbar {
-  position: absolute;
-  right: 1em;
-  top: 1em;
-  z-index: 1;
-}
-
-.log_in_out, .sign_up {
-  display: inline-block;
-  margin: 0 10px;
-  @include media(mobile) {
-    display: block;
-    margin: 10px 0;
-    text-align: right;
-  }
-
-  a {
-    color: $light-intense;
-
-    &:hover {
-      color: $orange;
-    }
-  }
-}
-
-.log_out a {
-  color: $orange;
-
-  &:hover {
-    color: $light-intense;
-  }
 }
