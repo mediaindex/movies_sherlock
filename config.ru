@@ -7,3 +7,4 @@ map '/app/assets' do
 end
 
 map('/') { run MoviesController }
+map('/movies') { run MoviesController }
