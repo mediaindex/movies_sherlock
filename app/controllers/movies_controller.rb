@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
   post '/' do
     @movie_title = params[:movie_title]
     if @movie_title.empty?
-      @error = 'Oops, field is empty!'
+      @error = 'Oops, nothing to search!'
       slim :'movies/index'
     elsif @movie_title.match(/[\p{L}&&[^a-zA-Z]]/)
       @error = 'Please, use only ASCII characters.'
@@ -29,7 +29,7 @@ class MoviesController < ApplicationController
         if @movie.save
           slim :'movies/show'
         else
-          @error = 'Something goes wrong.'
+          @error = 'Something goes wrong!'
         end
       end
     end
@@ -39,10 +39,4 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     slim :'movies/film_in_history'
   end
-
-  not_found do
-    status 404
-    slim :'404'
-  end
-
 end

@@ -1,0 +1,19 @@
+.wrapper
+  .centered
+    h1
+      'Sign up
+
+    form method='post'
+      - if @errors
+        .errors_container
+          ul.centered
+            - @errors.each do |error|
+              li
+                = error
+      input type="text" name="user[first_name]" placeholder="First name" autofocus="autofocus"
+      input type="text" name="user[last_name]" placeholder="Last name"
+      input type="email" name="user[email]" placeholder="Email"
+      input type="password" name="user[password]" placeholder="Password"
+      input type="password" name="user[password_confirmation]" placeholder="Password confirmation"
+      button type="submit"
+        'Sign up

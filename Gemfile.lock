@@ -93,6 +93,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  activesupport
   bcrypt-ruby
   bourbon
   coffee-script
