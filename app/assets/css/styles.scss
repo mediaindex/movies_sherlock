@@ -107,41 +107,30 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-
-// Authentication toolbar
-
-.auth_toolbar {
-  position: absolute;
-  right: 1em;
-  top: 1em;
-  z-index: 1;
-
-  a {
-    display: inline-block;
-    margin: 0 10px;
-    color: $light-intense;
-    @include media(mobile) {
-      display: block;
-      margin: 10px 0;
-      text-align: right;
-    }
-
-    &:hover {
-      color: $orange;
-    }
+h1 {
+  font-size: 4em;
+  color: #fff8dc;
+  text-shadow: rgb(255, 144, 39) 2px 2px;
+  @include media(mobile) {
+    font-size: 2em;
   }
 }
 
-
-.log_out a {
-  color: $orange;
-
-  &:hover {
-    color: $light-intense;
+h2 {
+  font-size: 2em;
+  color: $light;
+  margin-bottom: 40px;
+  @include media(mobile) {
+    font-size: 1em;
+    margin-bottom: 10px;
   }
 }
 
-// Main page
+a {
+  text-decoration: none;
+}
+
+// Logo
 
 .logo,
 .icon {
@@ -167,27 +156,46 @@ body {
   }
 }
 
-h1 {
-  font-size: 4em;
-  color: #fff8dc;
-  text-shadow: rgb(255, 144, 39) 2px 2px;
+.logo_small,
+.auth_toolbar {
+  position: absolute;
+  left: 1em;
+  top: 1em;
+  z-index: 1;
+}
+
+// Authentication toolbar
+
+.auth_toolbar {
+  top: 1.2em;
+  left: initial;
+  right: 1em;
   @include media(mobile) {
-    font-size: 2em;
+    top: .1em;
+  }
+
+  a {
+    display: inline-block;
+    margin: 0 10px;
+    color: $light-intense;
+    @include media(mobile) {
+      display: block;
+      margin: 10px 0;
+      text-align: right;
+    }
+
+    &:hover {
+      color: $orange;
+    }
   }
 }
 
-h2 {
-  font-size: 2em;
-  color: $light;
-  margin-bottom: 40px;
-  @include media(mobile) {
-    font-size: 1em;
-    margin-bottom: 10px;
-  }
-}
+.log_out a {
+  color: $orange;
 
-a {
-  text-decoration: none;
+  &:hover {
+    color: $light-intense;
+  }
 }
 
 // Form
