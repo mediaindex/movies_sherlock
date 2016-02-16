@@ -23,29 +23,31 @@ class MoviesController < ApplicationController
       if parser_result['Title'].nil?
         slim :'movies/no_results'
 
-      elsif Movie.where(title: parser_result['Title']).present?
-        movie = Movie.find_by(title: parser_result['Title'])
-        @movie_id = movie.id
-        slim :'movies/already_exists'
+      elsif Movie.where(title: parser_result['Title']).present? && current_user
+        @movie = Movie.find_by(title: parser_result['Title'])
+        @movie_id = @movie.id
+        slim :'movies/show_from_db'
 
-      else
+      elsif current_user
         @movie = Movie.new(parser.prepare_to_model)
 
         if @movie.save
-          slim :'movies/show'
+          slim :'movies/show_from_db'
         else
           @error = 'Something goes wrong!'
         end
-      end
-    end
-  end
 
-  get '/:id' do
-    if current_user
-      @movie = Movie.find(params[:id])
-      slim :'movies/film_in_history'
-    else
-      redirect("/auth/log_in")
+      else
+        result = ''
+        parser_result.each do |key, value|
+          if key == 'Poster'
+            result << "<tr><td>#{key}</td><td><img src=\"#{value}\" alt=\"Movie poster\"></td></tr>"
+          else
+            result << "<tr><td>#{key}</td><td>#{value}</td></tr>"
+          end
+        end
+        slim :'movies/show', :locals => { results: result }
+      end
     end
   end
 end
