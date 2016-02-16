@@ -11,6 +11,8 @@ gem 'require_all'
 gem 'rest-client'
 gem 'json'
 
+gem 'bcrypt-ruby'
+
 gem 'sprockets'
 gem 'slim'
 gem 'sass'
