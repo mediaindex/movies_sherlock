@@ -1,5 +1,7 @@
 class ApplicationController < Sinatra::Base
 
+  helpers AuthHelper
+
   register Sinatra::ActiveRecordExtension
   set :views, Proc.new { File.join(root, '../views/') }
 
