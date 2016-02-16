@@ -1,0 +1,18 @@
+.wrapper
+  .centered
+    h1
+      'Log in
+
+    form method='post'
+      - if @error
+        .errors_container
+          ul.centered
+            li
+              = @error
+      input type="email" name="user[email]" placeholder="Email" autofocus="autofocus"
+      input type="password" name="user[password]" placeholder="Password"
+      button type="submit"
+        'Log in
+    .link
+      a href='/'
+        '&#8592; Go home
