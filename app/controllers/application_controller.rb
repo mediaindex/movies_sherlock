@@ -1,5 +1,4 @@
 class ApplicationController < Sinatra::Base
-
   enable :sessions
   set :session_secret, 'try to make this string long and hard to guess'
 

@@ -1,5 +1,4 @@
 class AuthController < ApplicationController
-
   get '/log_in' do
     slim :'auth/log_in'
   end

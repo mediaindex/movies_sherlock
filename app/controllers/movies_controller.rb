@@ -1,5 +1,4 @@
 class MoviesController < ApplicationController
-
   get '/' do
     slim :'movies/index'
   end
