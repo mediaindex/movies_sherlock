@@ -107,7 +107,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
+h1, .title {
   font-size: 4em;
   color: #fff8dc;
   text-shadow: rgb(255, 144, 39) 2px 2px;
@@ -354,4 +354,50 @@ table {
 
 .make_with_love {
   padding-top: 40px;
+}
+
+// User page
+
+.site_statistics,
+.my_searches {
+  margin-bottom: 60px;
+
+  .title {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  div {
+    display: inline-block;
+    margin: 0 20px;
+  }
+
+  h2 {
+    display: block;
+    color: $orange;
+  }
+
+  span {
+    color: $light;
+  }
+
+  .movies_rating {
+    padding: 0;
+    margin-left: 10%;
+
+    li {
+      padding: 2px 0;
+      display: block;
+      text-align: left;
+      color: $orange;
+      @include media(mobile_low) {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.my_searches .link {
+  display: block;
+  margin-top: 50px;
 }

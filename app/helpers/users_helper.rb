@@ -7,5 +7,6 @@ end
 
 
 def user_statistics
+  @my_movies = Movie.where(user_id: current_user.id).count
   @movies_search = Movie.where(user_id: current_user.id).sum(:search_count)
 end

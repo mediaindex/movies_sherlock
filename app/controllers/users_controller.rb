@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   get '/:id' do
     if current_user
-      @user = User.find(params[:id])
+      begin
+        @user = User.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        nil
+      end
       site_statistics
       user_statistics
       slim :'users/index'

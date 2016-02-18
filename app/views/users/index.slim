@@ -1,26 +1,53 @@
 .wrapper
   .centered
     - if @user.user_role == 'admin'
-      div
-        h2
-          'Registered users:
-          == @users
-      div
-        h2
-          'All movies:
-          == @all_movies
-      div
-        h2
-          'Unique movies:
-          == @unique_movies
-      div
-        h2
-          'Top-5 popular movies searches:
-          - @popular_movie.each do |movie, number|
-            div
-              '#{movie} - #{number}
-    div
-      h2
-        'I search films
-        == @movies_search
-        '  times
+      .site_statistics
+        .title
+          'Site statistics
+        div
+          h2
+            == @users
+          span
+            'Registered user(-s)
+        div
+          h2
+            == @all_movies
+          span
+            'Movie(-s) in database
+        div
+          h2
+            == @unique_movies
+          span
+            'Unique movie(-s)
+        div
+          ul.movies_rating
+            - @popular_movie.each.with_index(1) do |movie, index|
+              li
+                '#{index}. #{movie[0]} - #{movie[1]}
+          span
+            'Top-5 popular movie searches
+
+    .my_searches
+      - if @movies_search == 0 || @movies_search == nil
+        .title
+          'My search history is empty
+        .link
+          a href='/'
+            '&#8592; Go home & find something
+      - else
+        .title
+          'My searches
+        div
+          h2
+            == @my_movies
+          span
+            'Movie(-s) in my library
+        div
+          h2
+            == @movies_search
+            '  time(-s)
+          span
+            'I search films
+        .link
+          a href='/'
+            'View my searching results &#8594;
