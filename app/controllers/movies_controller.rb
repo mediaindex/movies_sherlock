@@ -22,13 +22,14 @@ class MoviesController < ApplicationController
       if parser_result['Title'].nil?
         slim :'movies/no_results'
 
-      elsif Movie.where(title: parser_result['Title']).present? && current_user
+      elsif Movie.where(title: parser_result['Title'], user_id: current_user.id).present? && current_user
         @movie = Movie.find_by(title: parser_result['Title'])
         @movie_id = @movie.id
         slim :'movies/show'
 
       elsif current_user
         @movie = Movie.new(parser.prepare_to_model)
+        @movie.user_id = current_user.id
 
         if @movie.save
           slim :'movies/show'
