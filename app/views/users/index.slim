@@ -1,18 +1,26 @@
 .wrapper
   .centered
+    - if @user.user_role == 'admin'
+      div
+        h2
+          'Registered users:
+          == @users
+      div
+        h2
+          'All movies:
+          == @all_movies
+      div
+        h2
+          'Unique movies:
+          == @unique_movies
+      div
+        h2
+          'Top-5 popular movies searches:
+          - @popular_movie.each do |movie, number|
+            div
+              '#{movie} - #{number}
     div
       h2
-        'Registered users:
-        == @users
-    div
-      h2
-        'All movies:
-        == @all_movies
-    div
-      h2
-        'Unique movies:
-        == @unique_movies
-    div
-      h2
-        'Top-5 popular movies:
-        == @popular_movie
+        'I search films
+        == @movies_search
+        '  times

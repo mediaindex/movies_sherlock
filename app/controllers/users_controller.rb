@@ -1,11 +1,9 @@
 class UsersController < ApplicationController
   get '/:id' do
     if current_user
-      User.find(params[:id])
-      @users = User.count
-      @all_movies = Movie.count
-      @unique_movies = Movie.uniq.count(:title)
-      @popular_movie = Movie.group(:title).order('id DESC').limit(5).count(:id)
+      @user = User.find(params[:id])
+      site_statistics
+      user_statistics
       slim :'users/index'
     else
       redirect("/auth/log_in")
