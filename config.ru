@@ -9,3 +9,4 @@ end
 map('/') { run MoviesController }
 map('/movies') { run MoviesController }
 map('/auth') { run AuthController }
+map('/users') { run UsersController }

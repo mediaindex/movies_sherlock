@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
 
+  has_many :movies
+
   before_save :downcase_email
 
   validates :first_name, :last_name, :email, presence: true
