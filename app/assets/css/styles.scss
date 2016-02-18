@@ -156,7 +156,6 @@ a {
   }
 }
 
-.logo_small,
 .auth_toolbar {
   position: absolute;
   left: 1em;
@@ -367,7 +366,7 @@ table {
     margin-bottom: 20px;
   }
 
-  div {
+  .block {
     display: inline-block;
     margin: 0 20px;
   }
@@ -383,21 +382,15 @@ table {
 
   .movies_rating {
     padding: 0;
-    margin-left: 10%;
 
     li {
       padding: 2px 0;
       display: block;
-      text-align: left;
       color: $orange;
-      @include media(mobile_low) {
-        text-align: center;
-      }
     }
   }
 }
 
-.my_searches .link {
-  display: block;
-  margin-top: 50px;
+.links {
+  margin-top: 40px;
 }

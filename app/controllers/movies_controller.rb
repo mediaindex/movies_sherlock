@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
         slim :'movies/no_results'
 
       elsif Movie.where(title: parser_result['Title'], user_id: current_user.id).present? && current_user
-        @movie = Movie.find_by(title: parser_result['Title'])
+        @movie = Movie.find_by(title: parser_result['Title'], user_id: current_user.id)
         @movie_id = @movie.id
         @movie.increment!(:search_count)
         slim :'movies/show'
@@ -31,9 +31,9 @@ class MoviesController < ApplicationController
       elsif current_user
         @movie = Movie.new(parser.prepare_to_model)
         @movie.user_id = current_user.id
-        @movie.increment!(:search_count)
 
         if @movie.save
+          @movie.increment!(:search_count)
           slim :'movies/show'
         else
           @error = 'Something goes wrong!'
@@ -41,7 +41,6 @@ class MoviesController < ApplicationController
 
       else
         @movie = ShowFilm.new(parser.prepare_to_model)
-        @movie.increment!(:search_count)
         slim :'movies/show'
       end
     end

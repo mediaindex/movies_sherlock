@@ -2,7 +2,7 @@ def site_statistics
   @users = User.count
   @all_movies = Movie.count
   @unique_movies = Movie.uniq.count(:title)
-  @popular_movie = Movie.group(:title).order('id DESC').limit(5).count(:id)
+  @popular_movie = Movie.group(:title).order('max(title)').limit(5).count(:search_count)
 end
 
 
