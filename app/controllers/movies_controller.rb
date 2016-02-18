@@ -25,11 +25,13 @@ class MoviesController < ApplicationController
       elsif Movie.where(title: parser_result['Title'], user_id: current_user.id).present? && current_user
         @movie = Movie.find_by(title: parser_result['Title'])
         @movie_id = @movie.id
+        @movie.increment!(:search_count)
         slim :'movies/show'
 
       elsif current_user
         @movie = Movie.new(parser.prepare_to_model)
         @movie.user_id = current_user.id
+        @movie.increment!(:search_count)
 
         if @movie.save
           slim :'movies/show'
@@ -39,6 +41,7 @@ class MoviesController < ApplicationController
 
       else
         @movie = ShowFilm.new(parser.prepare_to_model)
+        @movie.increment!(:search_count)
         slim :'movies/show'
       end
     end
