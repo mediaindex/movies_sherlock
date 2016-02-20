@@ -53,13 +53,13 @@ class MoviesController < ApplicationController
         if @movie.user_id == current_user.id
           slim :'movies/show'
         else
-          redirect(not_found)
+          redirect not_found
         end
       rescue
-        redirect(not_found)
+        redirect not_found
       end
     else
-      redirect("/auth/log_in")
+      redirect '/auth/log_in'
     end
   end
 end

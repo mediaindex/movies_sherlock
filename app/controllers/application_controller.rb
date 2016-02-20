@@ -12,7 +12,7 @@ class ApplicationController < Sinatra::Base
 
   def current_user
     if session[:user_id]
-      @user = User.find(session[:user_id])
+      User.find(session[:user_id])
     else
       nil
     end
@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
 
   def current_user?
     unless current_user
-      redirect("/auth/log_in")
+      redirect '/auth/log_in'
     end
   end
 end

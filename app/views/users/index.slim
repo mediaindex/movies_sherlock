@@ -1,6 +1,6 @@
 .wrapper
   .centered
-    - if @user.user_role == 'admin'
+    - if current_user.user_role == 'admin'
       .site_statistics
         .title
           'Site statistics
@@ -41,6 +41,9 @@
         .link
           a href='/'
             '&#8592; Go home & find something
+        .link
+          a href='/users/#{current_user.id}/edit_profile'
+            'Edit profile
       - else
         .title
           'My search history
@@ -57,8 +60,11 @@
             'I search films
         .links
           .link
-            a href='/users/my_movies'
+            a href='/users/#{current_user.id}/my_movies'
               'View my movies &#8594;
           .link
             a href='/'
               '&#8592; or go home & find more
+          .link
+            a href='/users/#{current_user.id}/edit_profile'
+              'Edit profile

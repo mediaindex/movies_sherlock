@@ -1,0 +1,22 @@
+.wrapper
+  .centered
+    h1
+      'Edit profile
+    form method='post'
+      - if @errors
+        .errors_container
+          ul.centered
+            - @errors.each do |error|
+              li
+                = error
+      input type="hidden" name="_method" value="put"
+      input type="text" name="user[first_name]" value="#{@user.first_name}" placeholder="First name" autofocus="autofocus"
+      input type="text" name="user[last_name]" value="#{@user.last_name}" placeholder="Last name"
+      input type="email" name="user[email]" value="#{@user.email}" placeholder="Email"
+      input type="password" name="user[password]" value="#{@user.password}" placeholder="Password"
+      input type="password" name="user[password_confirmation]" value="#{@user.password_confirmation}" placeholder="Password confirmation"
+      button type="submit"
+        'Submit
+      .link
+        a href='/users/#{@user.id}'
+          '&#8592; Go back

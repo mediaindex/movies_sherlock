@@ -96,7 +96,7 @@
           td
             == @movie.film_type
 .link
-  a href='/users/search_history'
+  a href='/users/#{current_user.id}'
     '&#8592; Go to my search history
 .link
   a href='/'
