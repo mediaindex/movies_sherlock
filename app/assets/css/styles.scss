@@ -196,6 +196,19 @@ li {
       text-align: right;
     }
   }
+
+  .avatar {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background: $dark;
+    margin: 0 10px;
+    vertical-align: middle;
+    @include media(mobile) {
+      display: none;
+    }
+  }
 }
 
 .log_out a {
@@ -240,6 +253,15 @@ form {
       border: 2px solid rgba(255, 255, 255, 0.5);
       border-radius: 20px;
       background: rgba(0, 0, 0, 0);
+    }
+
+    &.avatar {
+      background: none;
+
+      &:focus {
+        border: 0;
+        background: none;
+      }
     }
   }
 

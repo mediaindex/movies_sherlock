@@ -3,6 +3,7 @@ class ApplicationController < Sinatra::Base
   set :session_secret, 'try to make this string long and hard to guess'
 
   register Sinatra::ActiveRecordExtension
+
   set :views, Proc.new { File.join(root, '../views/') }
 
   not_found do

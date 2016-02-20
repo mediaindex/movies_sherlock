@@ -1,4 +1,5 @@
 require './config/environment'
+require './config/database'
 
 map '/app/assets' do
   environment = Sprockets::Environment.new

@@ -1,2 +1,4 @@
 .sass-cache
 db/movies.sqlite3
+public/images
+public/uploads

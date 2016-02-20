@@ -98,7 +98,6 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
-  activesupport
   bcrypt-ruby
   bourbon
   carrierwave

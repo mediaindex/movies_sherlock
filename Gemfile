@@ -5,7 +5,6 @@ ruby '2.3.0'
 gem 'sinatra'
 gem 'sqlite3'
 gem 'activerecord'
-gem 'activesupport'
 gem 'sinatra-activerecord'
 
 gem 'require_all'

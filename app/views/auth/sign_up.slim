@@ -4,7 +4,7 @@
       'Sign up
     p
       'It's completely free
-    form method='post'
+    form method='post' enctype="multipart/form-data"
       - if @errors
         .errors_container
           ul.centered
@@ -16,6 +16,9 @@
       input type="email" name="user[email]" placeholder="Email"
       input type="password" name="user[password]" placeholder="Password"
       input type="password" name="user[password_confirmation]" placeholder="Password confirmation"
+      p
+        'Choose your avatar
+      input.avatar type="file" name="user[avatar]" placeholder="Avatar"
       button type="submit"
         'Sign up
     .link
