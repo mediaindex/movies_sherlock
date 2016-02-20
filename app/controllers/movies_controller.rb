@@ -45,4 +45,21 @@ class MoviesController < ApplicationController
       end
     end
   end
+
+  get '/movie/:id' do
+    if current_user
+      begin
+        @movie = Movie.find(params[:id])
+        if @movie.user_id == current_user.id
+          slim :'movies/show'
+        else
+          redirect(not_found)
+        end
+      rescue
+        redirect(not_found)
+      end
+    else
+      redirect("/auth/log_in")
+    end
+  end
 end

@@ -28,7 +28,7 @@
               'Unique movie(-s)
           .block
             ul.movies_rating
-              - @popular_movie.each.with_index(1) do |movie, index|
+              - @popular_movies.each.with_index(1) do |movie, index|
                 li
                   '#{index}. #{movie[0]} - #{movie[1]}
             span
@@ -43,10 +43,10 @@
             '&#8592; Go home & find something
       - else
         .title
-          'My searches
+          'My search history
         .block
           h2
-            == @my_movies
+            == @user_movies
           span
             'Movie(-s) in my library
         .block
@@ -57,8 +57,8 @@
             'I search films
         .links
           .link
-            a href='#'
-              'View my searching results &#8594;
+            a href='/users/my_movies'
+              'View my movies &#8594;
           .link
             a href='/'
               '&#8592; or go home & find more

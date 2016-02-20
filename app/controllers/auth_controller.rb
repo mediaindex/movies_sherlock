@@ -18,7 +18,7 @@ class AuthController < ApplicationController
 
       if user
         session[:user_id] = user.id
-        redirect('/')
+        redirect('/users/search_history')
       else
         @error = 'Username not found or password incorrect.'
         slim :'auth/log_in'
@@ -35,7 +35,7 @@ class AuthController < ApplicationController
     if !current_user
       slim :'auth/sign_up'
     else
-      redirect('/')
+      redirect('/users/search_history')
     end
   end
 
