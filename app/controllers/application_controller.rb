@@ -17,4 +17,10 @@ class ApplicationController < Sinatra::Base
       nil
     end
   end
+
+  def current_user?
+    unless current_user
+      redirect("/auth/log_in")
+    end
+  end
 end
