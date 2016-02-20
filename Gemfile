@@ -14,6 +14,8 @@ gem 'json'
 
 gem 'bcrypt-ruby'
 
+gem 'carrierwave'
+
 gem 'sprockets'
 gem 'slim'
 gem 'sass'
