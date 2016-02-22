@@ -1,0 +1,15 @@
+main:
+  auth_toolbar:
+    greetings: "Привет, "
+    log_in: "Логин"
+    log_out: "Выйти"
+    sign_up: "Регистрация"
+  h1: "Поможет вам легко найти любую информацию о фильме"
+  button:
+    submit: "Поиск"
+  link:
+      make_with_love: !!html
+        <p>Сделано с &hearts; в Сибири</p>
+  helpers:
+    placeholder:
+      movie_title: "Название фильма"

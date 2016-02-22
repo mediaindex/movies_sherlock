@@ -1,0 +1,15 @@
+main:
+  auth_toolbar:
+    greetings: "Hello, "
+    log_in: "Login"
+    log_out: "Log Out"
+    sign_up: "Sign Up"
+  h1: "Helps you easily find any information about the movie you want"
+  button:
+    submit: "Submit"
+  link:
+    make_with_love: !!html
+      <p>Make with &hearts; in Siberia</p>
+  helpers:
+    placeholder:
+      movie_title: "Movie title"

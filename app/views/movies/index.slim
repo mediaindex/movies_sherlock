@@ -6,7 +6,7 @@
     h1
       'Movies Sherlock
     h2
-      'Helps you easily find any information about the movie you want
+      = t.main.h1
 
     form method='post'
       - if @error
@@ -16,7 +16,7 @@
               = @error
       input type="text" name="movie_title" placeholder="Movie title"
       button type="submit"
-        'Search
+        = t.main.button.submit
     .make_with_love
       a href='http://kirillbobrov.com' target='_blank'
-        'Make with &hearts; in Siberia
+        == t.main.link.make_with_love
