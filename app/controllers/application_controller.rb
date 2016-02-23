@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
 
   register Sinatra::R18n
   R18n::I18n.default = 'en'
-  R18n.default_places {'./i18n'}
+  R18n.default_places {'./locales'}
 
   before do
     session[:locale] = params[:locale] if params[:locale]
