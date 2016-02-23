@@ -32,7 +32,7 @@ $dark-secondary: rgba( $dark, .7 );
   }
 }
 
-// Helpers
+/* Helpers */
 
 .centered {
   position: absolute;
@@ -59,6 +59,7 @@ $dark-secondary: rgba( $dark, .7 );
   background: $red;
   height: 100%;
   border-radius: 12px;
+  z-index: 1;
   @include animation(Errors 5s cubic-bezier(0.45, 0.43, 0.52, 1.03));
 
   ul {
@@ -85,7 +86,7 @@ $dark-secondary: rgba( $dark, .7 );
   }
 }
 
-// Basic setup
+/* Basic setup */
 
 html {
   height: 100%;
@@ -144,7 +145,7 @@ li {
   list-style: none;
 }
 
-// Logo
+/* Logo */
 
 .logo,
 .icon {
@@ -177,7 +178,7 @@ li {
   z-index: 1;
 }
 
-// Authentication toolbar
+/*  Authentication toolbar */
 
 .auth_toolbar {
   top: 1.2em;
@@ -219,7 +220,7 @@ li {
   }
 }
 
-// Form
+/* Form */
 
 form {
   position: relative;
@@ -240,7 +241,6 @@ form {
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid rgba(255, 255, 255, 0);
-    overflow: hidden;
     margin-top: 15px;
     font-weight: bolder;
     color: $light;
@@ -253,15 +253,6 @@ form {
       border: 2px solid rgba(255, 255, 255, 0.5);
       border-radius: 20px;
       background: rgba(0, 0, 0, 0);
-    }
-
-    &.avatar {
-      background: none;
-
-      &:focus {
-        border: 0;
-        background: none;
-      }
     }
   }
 
@@ -288,9 +279,84 @@ form {
       outline: none;
     }
   }
+
+  .file {
+    @extend input;
+    width: inherit;
+    line-height: 1;
+    padding: 0.65em;
+    position: relative;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+    font-size: 0.9em;
+  }
+
+  .file.active .file-label {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  .file.focus {
+    outline: 0;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    background: transparent;
+  }
+
+  .file.focus::after {
+    border-top-color: #709AD0;
+  }
+
+  /* hide and overlay when JavaScript is enabled */
+
+  .file input,
+  .file input::-webkit-file-upload-button {
+    cursor: pointer;
+  }
+
+  .file input {
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    /* strange input behavior in IE */
+    font-size: 10em;
+  }
+
+  /* show file value when selected */
+
+  .file-value {
+    color: #709AD0;
+    display: none;
+  }
+
+  .file-value::before {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjQgMjQiIGhlaWdodD0iMTAwIiB3aWR0aD0iMTAwIj48cGF0aCBmaWxsPSIjNzA5QUQwIiBkPSJNMTQgMkg2Yy0xLjEgMC0yIC45LTIgMnYxNmMwIDEuMS45IDIgMiAyaDEyYzEuMSAwIDItLjkgMi0yVjhsLTYtNnptNC41IDdIMTNWMy41TDE4LjUgOXoiLz48L3N2Zz4NCg==);
+    background-position: center;
+    background-size: 100% auto;
+    content: '';
+    display: inline-block;
+    height: 1.5em;
+    line-height: 0;
+    margin: -0.55em 0.25em -0.45em 0;
+    position: relative;
+    width: 1.5em;
+  }
+
+  .file.active .file-value {
+    display: inline;
+  }
 }
 
-// Table
+/* Table */
 
 .table-wrapper {
   margin: 40px 10px;
@@ -361,7 +427,7 @@ table {
   }
 }
 
-// Links
+/* Links */
 
 .link,
 .make_with_love {
@@ -385,7 +451,7 @@ table {
   padding-top: 40px;
 }
 
-// User page
+/* User page */
 
 .site_statistics,
 .my_searches {
@@ -425,7 +491,7 @@ table {
   margin-top: 40px;
 }
 
-// Search history
+/* Search history */
 
 .search_history {
   p {

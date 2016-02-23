@@ -16,9 +16,13 @@
       input type="email" name="user[email]" placeholder="Email"
       input type="password" name="user[password]" placeholder="Password"
       input type="password" name="user[password_confirmation]" placeholder="Password confirmation"
-      p
-        'Choose your avatar
-      input.avatar type="file" name="user[avatar]" placeholder="Avatar"
+
+      label.file
+        span.file-label
+          'Choose your avatar&hellip;
+        input type="file" name="user[avatar]"
+        span.file-value aria-hidden="true"
+
       button type="submit"
         'Sign up
     .link
