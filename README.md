@@ -1,5 +1,5 @@
 # Movies Sherlock
 
-Help you to find all movie inforamation and nothing else.
+Helps you to find information about movies you want.
 
-This is a simple app in Ruby framework Sinatra.
+This is a simple app in Ruby's Sinatra framework.
