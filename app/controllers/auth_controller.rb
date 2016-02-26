@@ -1,9 +1,9 @@
 class AuthController < ApplicationController
   get '/log_in' do
-    if !current_user
-      slim :'auth/log_in'
-    else
+    if current_user
       redirect '/'
+    else
+      slim :'auth/log_in'
     end
   end
 
@@ -32,10 +32,10 @@ class AuthController < ApplicationController
   end
 
   get '/sign_up' do
-    if !current_user
-      slim :'auth/sign_up'
-    else
+    if current_user
       redirect "/users/#{current_user.id}"
+    else
+      slim :'auth/sign_up'
     end
   end
 

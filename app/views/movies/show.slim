@@ -95,9 +95,10 @@
             'Film type
           td
             == @movie.film_type
-.link
-  a href='/users/#{current_user.id}'
-    '&#8592; Go to my search history
+- if current_user
+  .link
+    a href='/users/#{current_user.id}'
+      '&#8592; Go to my search history
 .link
   a href='/'
     'Or try another search &#8594;

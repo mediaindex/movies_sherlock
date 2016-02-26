@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
       if parser_result['Title'].nil?
         slim :'movies/no_results'
 
-      elsif Movie.where(title: parser_result['Title'], user_id: current_user.id).present? && current_user
+      elsif current_user && Movie.where(title: parser_result['Title'], user_id: current_user.id).present?
         @movie = Movie.find_by(title: parser_result['Title'], user_id: current_user.id)
         @movie_id = @movie.id
         @movie.increment!(:search_count)
